@@ -2183,10 +2183,9 @@ void c_getblock()
 		}
 	} else {
 		for (i=0;i<height;i++) {
-			for (j=0;j<width;j++) {
-				lRam[a3++]=BmpData[m1l++];
-			}
-			m1l+=LCD_WIDTH-width;
+			memcpy(lRam+a3,BmpData+m1l,width);
+			a3+=width;
+			m1l+=LCD_WIDTH;
 		}
 	}
 }
